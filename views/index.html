@@ -1,0 +1,41 @@
+<html>
+    <body>
+        <title>Acme Users</title>
+        <link rel='stylesheet' href='/vendor/bootstrap/dist/css/bootstrap.css' />
+    </body>
+
+    <head>
+        <div class = 'container'>
+        <h1> Acme Users Filter </h1>
+        <ul class = "nav nav-tabs">
+            {% for letter in letters %}
+            <li><a href='/users/filter/{{letter.letter}}' >{{letter.letter}} ({{letter.count}})</a></li>
+            {% endfor %}
+            <li><a href='/'>All</a></li>
+        </ul>
+        <div class='col-sm-8'>
+            <table class = 'table'>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Email</th>
+                        <th>Location</th>
+                    <tr>
+                </thead>
+
+                <tbody>
+                    {% for user in users %}
+                    <tr>
+                        <td> {{user.first_name}}</td>
+                        <td> {{user.last_name}}</td>
+                        <td> {{user.email}}</td>
+                        <td> {{user.location}}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        </div>
+    </head>
+</html>
